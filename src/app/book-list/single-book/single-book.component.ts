@@ -13,14 +13,14 @@ export class SingleBookComponent implements OnInit {
 
   book: Book;
 
-  constructor(private route: ActivatedRoute, private bookService: BooksService, private router: Router) { }
+  constructor(private route: ActivatedRoute, private booksService: BooksService,
+              private router: Router) {}
 
+ 
   ngOnInit() {
-    // cree un livre temporaire vide puis on recupère le bon livre
-    this.book = new Book('','');
+    this.book = new Book('', '');
     const id = this.route.snapshot.params['id'];
-    // + pour cast en nombre
-    this.bookService.getSingleBook(+id).then(
+    this.booksService.getSingleBook(+id).then(
       (book: Book) => {
         this.book = book;
       }
@@ -30,6 +30,5 @@ export class SingleBookComponent implements OnInit {
   onBack() {
     this.router.navigate(['/books']);
   }
-
-
 }
+
