@@ -2,8 +2,6 @@ import { Injectable } from '@angular/core';
 import { Book } from '../models/Book.model';
 import { Subject } from 'rxjs/Subject';
 import * as firebase from 'firebase';
-import { resolve } from 'path';
-import { reject } from 'q';
 
 @Injectable()
 export class BooksService {
